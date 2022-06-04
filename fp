@@ -13,11 +13,13 @@ local EspSection = EspTab:NewSection("ESP")
 local ExperimentalTab = Window:NewTab("Experimental")
 local SASection = ExperimentalTab:NewSection("Silent Aim")
 
+
 local BindsTab = Window:NewTab("Binds")
 local BindsSection = BindsTab:NewSection("Binds")
 
 local ColorTab = Window:NewTab("Color")
 local ColorSection = ColorTab:NewSection("Color")
+
 
 
 
@@ -275,9 +277,16 @@ end)
 
 
 
-
-
-
-BindsSection:NewKeybind("Toggle UI", "", Enum.KeyCode.F, function()
+BindsSection:NewKeybind("Toggle UI", "", Enum.KeyCode.F1, function()
 	Library:ToggleUI()
+end)
+local PlayerTab = Window:NewTab("Player")
+local PlayerSection = PlayerTab:NewSection("Player")
+
+PlayerSection:NewToggle("Fly", "Press f to enable", function(state)
+    if state then
+
+loadstring(game:HttpGet("https://pastebin.com/raw/MNf5xK7b", true))()
+
+	end
 end)
