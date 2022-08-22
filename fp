@@ -12,6 +12,7 @@ local EspSection = EspTab:NewSection("ESP")
 
 local ExperimentalTab = Window:NewTab("Experimental")
 local SASection = ExperimentalTab:NewSection("Silent Aim")
+local GmSection = ExperimentalTab:NewSection("Guns Mods")
 
 
 local BindsTab = Window:NewTab("Binds")
@@ -206,6 +207,47 @@ SASection:NewDropdown("Target Part", "", {"Head", "Torso", "Right Arm", "Left Ar
 SASection:NewToggle("Panic Mode", "Will track closest player if they are within panic distance", function(state) panicMode = state end)
 SASection:NewSlider("Panic Distance", "", 40, 5, function(s) panicDistance = s end)
 
+GmSection:NewToggle("Pro firerate", "be a pro", function(state) for i, a in pairs(getgc(true)) do
+ if type(a) == 'table' and rawget(a, "aimrotkickmin") then
+   a.aimrotkickmin = Vector3.new(0,0,0)
+   a.aimrotkickmax = Vector3.new(0,0,0)
+   a.aimtranskickmin = Vector3.new(0,0,0)
+   a.aimtranskickmax = Vector3.new(0,0,0)
+   a.aimcamkickmin = Vector3.new(0,0,0)
+   a.aimcamkickmax = Vector3.new(0,0,0)
+   a.rotkickmin = Vector3.new(0,0,0)
+   a.rotkickmax = Vector3.new(0,0,0)
+   a.transkickmin = Vector3.new(0,0,0)
+   a.transkickmax = Vector3.new(0,0,0)
+   a.camkickmin = Vector3.new(0,0,0)
+   a.camkickmax = Vector3.new(0,0,0)
+   a.aimcamkickspeed = 99999
+   a.modelkickspeed = 9999
+   a.modelrecoverspeed = 9999
+   a.firerate = 150 --Change to your own
+ end
+end end)
+
+GmSection:NewToggle("CRAZY firerate", "annoy people", function(state) for i, a in pairs(getgc(true)) do
+ if type(a) == 'table' and rawget(a, "aimrotkickmin") then
+   a.aimrotkickmin = Vector3.new(0,0,0)
+   a.aimrotkickmax = Vector3.new(0,0,0)
+   a.aimtranskickmin = Vector3.new(0,0,0)
+   a.aimtranskickmax = Vector3.new(0,0,0)
+   a.aimcamkickmin = Vector3.new(0,0,0)
+   a.aimcamkickmax = Vector3.new(0,0,0)
+   a.rotkickmin = Vector3.new(0,0,0)
+   a.rotkickmax = Vector3.new(0,0,0)
+   a.transkickmin = Vector3.new(0,0,0)
+   a.transkickmax = Vector3.new(0,0,0)
+   a.camkickmin = Vector3.new(0,0,0)
+   a.camkickmax = Vector3.new(0,0,0)
+   a.aimcamkickspeed = 99999
+   a.modelkickspeed = 9999
+   a.modelrecoverspeed = 9999
+   a.firerate = 1000 --Change to your own
+ end
+end end)
 
 
 
@@ -290,3 +332,12 @@ loadstring(game:HttpGet("https://pastebin.com/raw/MNf5xK7b", true))()
 
 	end
 end)
+PlayerSection:NewToggle("Unlock all", "wait 1 minute for it to load", function(state)
+    if state then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/VoidMasterX/Releases/main/PF_UnlockAll.lua"))();
+
+	end
+end)
+
+
+
