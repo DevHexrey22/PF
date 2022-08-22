@@ -2,7 +2,7 @@ local rs = game:GetService("RunService")
 local uis = game:GetService("UserInputService")
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Rohub | Phantom Forces", "DarkTheme")
+local Window = Library.CreateLib("Rohub | Phantom Forces", "BloodTheme")
 
 local AimbotTab = Window:NewTab("Aimbot")
 local AimbotSection = AimbotTab:NewSection("Aimbot")
